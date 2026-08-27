@@ -94,7 +94,7 @@ const rollDice = () => {
       <tr>
         <td>Vieren</td>
         <td>Tel alle Vieren</td>
-        <td>{{ four}}</td>
+        <td>{{ four }}</td>
       </tr>
       <tr>
         <td>Vijven</td>
