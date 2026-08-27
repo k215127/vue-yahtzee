@@ -20,6 +20,23 @@ const counts = reactive([
   { dice: 6, sum: 0 },
 ])
 
+const one = reactive(0);
+const two = reactive(0);
+const three = reactive(0);
+const four = reactive(0);
+const five = reactive(0);
+const six = reactive(0);
+const total = reactive(0);
+const totalUnderHalf = reactive(0);
+
+const threeOfaKind = reactive(0);
+const fourOfaKind = reactive(0);
+const fiveOfAkind = reactive(0);
+const fullHouse = reactive(0);
+const chance = reactive(0);
+const smallStreet = reactive(0);
+const bigStreet = reactive(0);
+
 const rollDice = () => {
   for (const number in dice) {
     dice[number].number = 0
@@ -30,6 +47,7 @@ const rollDice = () => {
   }
 
 }
+
 
 
 </script>
@@ -61,37 +79,37 @@ const rollDice = () => {
       <tr>
         <td>Enen</td>
         <td>Tel alle Enen</td>
-        <td>{{ counts.sum }}</td>
+        <td>{{ one }}</td>
       </tr>
       <tr>
         <td>Tweeën</td>
         <td>Tel alle Tweeën</td>
-        <td>0</td>
+        <td>{{ two }}</td>
       </tr>
       <tr>
         <td>Drieën</td>
         <td>Tel alle Drieën</td>
-        <td>0</td>
+        <td>{{ three }}</td>
       </tr>
       <tr>
         <td>Vieren</td>
         <td>Tel alle Vieren</td>
-        <td>0</td>
+        <td>{{ four}}</td>
       </tr>
       <tr>
         <td>Vijven</td>
         <td>Tel alle Vijven</td>
-        <td>0</td>
+        <td> {{ five }}</td>
       </tr>
       <tr>
         <td>Zessen</td>
         <td>Tel alle Zessen</td>
-        <td>0</td>
+        <td> {{ six }}</td>
       </tr>
       <tr>
         <td>Totaal aantal punten</td>
         <td></td>
-        <td>0</td>
+        <td> {{ total }}</td>
       </tr>
     </tbody>
   </table>
@@ -105,52 +123,52 @@ const rollDice = () => {
       <tr>
         <td>Three of a kind</td>
         <td>3 dezelfde Totaal v.d. 5 stenen </td>
-        <td>0</td>
+        <td>{{ threeOfaKind }}</td>
       </tr>
       <tr>
         <td>Carré</td>
         <td>4 dezelfde Totaal v.d. 5 stenen </td>
-        <td>0</td>
+        <td>{{ fourOfaKind }}</td>
       </tr>
       <tr>
         <td>Full House</td>
         <td>2 + 3 dezelfde 25 punten</td>
-        <td>0</td>
+        <td>{{ fullHouse }}</td>
       </tr>
       <tr>
         <td>Kleine straat</td>
         <td>4 opeenvolgende nummers 30 punten</td>
-        <td>0</td>
+        <td>{{ smallStreet }}</td>
       </tr>
       <tr>
         <td>Grote straat</td>
         <td>5 opeenvolgende nummers 40 punten</td>
-        <td>0</td>
+        <td>{{ bigStreet }}</td>
       </tr>
       <tr>
         <td>Topscore</td>
         <td>5 dezelfde 50 punten</td>
-        <td>0</td>
+        <td>{{ fiveOfAkind }} </td>
       </tr>
       <tr>
         <td>Kans</td>
         <td>vrije keus Totaal v.d. 5 stenen</td>
-        <td>0</td>
+        <td>{{ chance }}</td>
       </tr>
       <tr>
         <td>Totaal</td>
         <td>van de onderste helft</td>
-        <td>0</td>
+        <td> {{ totalUnderHalf }}</td>
       </tr>
       <tr>
         <td>Totaal</td>
         <td>van de bovenste helft</td>
-        <td>0</td>
+        <td>{{ total }}</td>
       </tr>
       <tr>
         <td>Totaal Generaal</td>
         <td></td>
-        <td>0</td>
+        <td> {{ total + totalUnderHalf }} </td>
       </tr>
     </tbody>
   </table>
