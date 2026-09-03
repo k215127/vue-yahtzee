@@ -3,22 +3,14 @@ import { ref } from 'vue'
 import { reactive } from 'vue'
 
 const dice = reactive([
-  { diceNumber: 1, number: 0 },
-  { diceNumber: 2, number: 0 },
-  { diceNumber: 3, number: 0 },
-  { diceNumber: 4, number: 0 },
-  { diceNumber: 5, number: 0 },
-  { diceNumber: 6, number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
 ])
 
-const counts = reactive([
-  { dice: 1, sum: 0 },
-  { dice: 2, sum: 0 },
-  { dice: 3, sum: 0 },
-  { dice: 4, sum: 0 },
-  { dice: 5, sum: 0 },
-  { dice: 6, sum: 0 },
-])
 
 const one = reactive(0);
 const two = reactive(0);
@@ -48,7 +40,7 @@ const rollDice = () => {
 
 }
 
-
+function
 
 </script>
 
