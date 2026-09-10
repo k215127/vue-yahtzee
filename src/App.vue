@@ -40,7 +40,11 @@ const rollDice = () => {
 
 }
 
-function
+const countDice = () => {
+  for (const number in dice) {
+
+  }
+}
 
 </script>
 
