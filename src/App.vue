@@ -12,14 +12,14 @@ const dice = reactive([
 ])
 
 
-const one = reactive(0);
-const two = reactive(0);
-const three = reactive(0);
-const four = reactive(0);
-const five = reactive(0);
-const six = reactive(0);
-const total = reactive(0);
-const totalUnderHalf = reactive(0);
+const results = reactive([
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+  { number: 0 },
+])
 
 const threeOfaKind = reactive(0);
 const fourOfaKind = reactive(0);
@@ -75,32 +75,32 @@ const countDice = () => {
       <tr>
         <td>Enen</td>
         <td>Tel alle Enen</td>
-        <td>{{ one }}</td>
+        <td>{{ results.number }}</td>
       </tr>
       <tr>
         <td>Tweeën</td>
         <td>Tel alle Tweeën</td>
-        <td>{{ two }}</td>
+        <td>{{ results.number }}</td>
       </tr>
       <tr>
         <td>Drieën</td>
         <td>Tel alle Drieën</td>
-        <td>{{ three }}</td>
+        <td>{{ results.number }}</td>
       </tr>
       <tr>
         <td>Vieren</td>
         <td>Tel alle Vieren</td>
-        <td>{{ four }}</td>
+        <td>{{ results.number }}</td>
       </tr>
       <tr>
         <td>Vijven</td>
         <td>Tel alle Vijven</td>
-        <td> {{ five }}</td>
+        <td> {{ results.number }}</td>
       </tr>
       <tr>
         <td>Zessen</td>
         <td>Tel alle Zessen</td>
-        <td> {{ six }}</td>
+        <td> {{ results.number }}</td>
       </tr>
       <tr>
         <td>Totaal aantal punten</td>
