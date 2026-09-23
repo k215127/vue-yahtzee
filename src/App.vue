@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { reactive } from 'vue'
 
 const dice = reactive([
@@ -12,14 +12,17 @@ const dice = reactive([
 ])
 
 
-const results = reactive([
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-])
+
+
+const result = computed(() => {
+  const count = ref([
+    { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+  ])
+  for (let i = 1; i <= count.length; i++) {
+    count[i - 1].value = dice[i].number * i;
+  }
+  return count;
+});
 
 const threeOfaKind = reactive(0);
 const fourOfaKind = reactive(0);
@@ -37,14 +40,9 @@ const rollDice = () => {
     const diceRolls = Math.floor((Math.random() * 6) + 1);
     dice[i].number = diceRolls
   }
-
+  result()
 }
 
-const countDice = () => {
-  for (const number in dice) {
-
-  }
-}
 
 </script>
 
@@ -75,32 +73,32 @@ const countDice = () => {
       <tr>
         <td>Enen</td>
         <td>Tel alle Enen</td>
-        <td>{{ results.number }}</td>
+        <td>{{ count }}</td>
       </tr>
       <tr>
         <td>Tweeën</td>
         <td>Tel alle Tweeën</td>
-        <td>{{ results.number }}</td>
+        <td>{{ }}</td>
       </tr>
       <tr>
         <td>Drieën</td>
         <td>Tel alle Drieën</td>
-        <td>{{ results.number }}</td>
+        <td>{{ }}</td>
       </tr>
       <tr>
         <td>Vieren</td>
         <td>Tel alle Vieren</td>
-        <td>{{ results.number }}</td>
+        <td>{{ }}</td>
       </tr>
       <tr>
         <td>Vijven</td>
         <td>Tel alle Vijven</td>
-        <td> {{ results.number }}</td>
+        <td> {{ }}</td>
       </tr>
       <tr>
         <td>Zessen</td>
         <td>Tel alle Zessen</td>
-        <td> {{ results.number }}</td>
+        <td> {{ }}</td>
       </tr>
       <tr>
         <td>Totaal aantal punten</td>
