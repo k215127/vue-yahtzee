@@ -11,19 +11,6 @@ const dice = reactive([
   { number: 0 },
 ])
 
-
-
-
-const result = computed(() => {
-  const count = ref([
-    { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
-  ])
-  for (let i = 1; i <= count.length; i++) {
-    count[i - 1].value = dice[i].number * i;
-  }
-  return count;
-});
-
 const threeOfaKind = reactive(0);
 const fourOfaKind = reactive(0);
 const fiveOfAkind = reactive(0);
@@ -40,9 +27,21 @@ const rollDice = () => {
     const diceRolls = Math.floor((Math.random() * 6) + 1);
     dice[i].number = diceRolls
   }
+  console.log(result)
   result()
 }
 
+const result = computed(() => {
+  const count = ref(
+    { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+  )
+  for (let i = 1; i <= dice.length; i++) {
+    console.log(count.value[i] + "test" + i)
+
+    count.value[i] = dice[i].number * i;
+  }
+  return count;
+});
 
 </script>
 
