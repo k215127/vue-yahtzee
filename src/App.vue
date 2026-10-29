@@ -2,14 +2,9 @@
 import { computed, ref } from 'vue'
 import { reactive } from 'vue'
 
-const dice = reactive([
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-  { number: 0 },
-])
+const dice = ref(
+  { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+)
 
 const threeOfaKind = reactive(0);
 const fourOfaKind = reactive(0);
@@ -21,11 +16,11 @@ const bigStreet = reactive(0);
 
 const rollDice = () => {
   for (const number in dice) {
-    dice[number].number = 0
+    dice.value[number] = 0
   }
   for (let i = 0; i <= 7; i++) {
     const diceRolls = Math.floor((Math.random() * 6) + 1);
-    dice[i].number = diceRolls
+    dice.value[i] = diceRolls
   }
   console.log(result)
   result()
@@ -35,10 +30,10 @@ const result = computed(() => {
   const count = ref(
     { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
   )
-  for (let i = 1; i <= dice.length; i++) {
+  for (let i = 1; i <= dice.value.length; i++) {
     console.log(count.value[i] + "test" + i)
 
-    count.value[i] = dice[i].number * i;
+    count.value[i] = dice.value[i] * i;
   }
   return count;
 });
@@ -50,7 +45,7 @@ const result = computed(() => {
   <table>
     <tbody>
       <tr v-for="(numbers, index) in dice" :key="index">
-        {{ numbers.number }}
+        {{ numbers }}
       </tr>
     </tbody>
   </table>
@@ -87,7 +82,7 @@ const result = computed(() => {
       <tr>
         <td>Vieren</td>
         <td>Tel alle Vieren</td>
-        <td>{{ }}</td>
+        <td> {{ }} </td>
       </tr>
       <tr>
         <td>Vijven</td>
